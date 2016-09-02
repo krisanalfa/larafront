@@ -1,0 +1,15 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+indent_size = 4
+
+# 2 space indentation
+[{*.js,elixir.json,package.json,bower.json,*.css,*.scss,*.less,*.blade.php,*.vue,.bowerrc}]
+indent_size = 2
