@@ -13,19 +13,13 @@ class User extends Authenticatable
     use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
-     * {@inheritDoc}
-     */
-    protected $appends = ['point', 'balance', 'image'];
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'email', 'password',
-        'first_name', 'last_name',
-        'sex', 'dob', 'phone', 'profile_picture'
+        'email', 'name',
+        'password', 'remember_token',
     ];
 
     /**
@@ -36,37 +30,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * Get name attribute.
-     *
-     * @return string
-     */
-    protected function getNameAttribute()
-    {
-        return implode(
-            ' ',
-            Arr::only($this->attributes, ['first_name', 'last_name'])
-        );
-    }
-
-    /**
-     * Get point attribute.
-     *
-     * @return int
-     */
-    public function getPointAttribute()
-    {
-        return 0;
-    }
-
-    /**
-     * Get balance attribute.
-     *
-     * @return int
-     */
-    public function getBalanceAttribute()
-    {
-        return 0;
-    }
 }

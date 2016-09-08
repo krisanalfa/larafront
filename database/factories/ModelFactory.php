@@ -14,13 +14,8 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'email' => $faker->email,
-        'password' => app('hash')->make('password'),
-        'first_name' => $faker->firstName,
-        'last_name' => $faker->lastName,
-        'phone' => $faker->phoneNumber,
-        'dob' => $faker->date,
-        'profile_picture' => $faker->imageUrl(640, 640),
-        'sex' => $faker->randomElement(['male', 'female']),
+        'password' => Illuminate\Support\Facades\Hash::make('password'),
+        'name' => $faker->name,
         'remember_token' => str_random(60),
     ];
 });

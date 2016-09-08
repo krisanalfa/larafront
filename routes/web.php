@@ -12,6 +12,6 @@
 */
 
 Route::get('/', 'SiteController@index');
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', ['middleware' => ['auth'], 'uses' => 'DashboardController@index']);
 
 Auth::routes();
